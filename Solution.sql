@@ -81,8 +81,8 @@ DECLARE
   max_etudiant Compte;
 BEGIN
   c1 := new Compte(p_RIB => '1245887', p_type_compte => 'compte_étudiant', p_CIN => 'AA12580', p_nom => 'Ali', p_solde => 2580.14);
-  c2 := new Compte(p_RIB => '7894561', p_type_compte => 'compte_étudiant', p_CIN => 'BB24681', p_nom => 'mariam', p_solde => 3000.00);
-  c3 := new Compte(p_RIB => '1597532', p_type_compte => 'compte_étudiant', p_CIN => 'CC36912', p_nom => 'imane', p_solde => 4500.00);
+  c2 := new Compte(p_RIB => '7894561', p_type_compte => 'compte_étudiant', p_CIN => 'BB24681', p_nom => 'fatima', p_solde => 3500.00);
+  c3 := new Compte(p_RIB => '1597532', p_type_compte => 'compte_étudiant', p_CIN => 'CC36912', p_nom => 'tarik', p_solde => 5000.00);
 
  DBMS_OUTPUT.PUT_LINE(c1.afficher());  
  DBMS_OUTPUT.PUT_LINE(c2.afficher());  

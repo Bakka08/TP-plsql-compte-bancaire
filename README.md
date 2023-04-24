@@ -1,10 +1,9 @@
-Un compte bancaire est défini par le RIB, le type du compte, le CIN du propriétaire, le
-nom du propriétaire et le solde.
+# Un compte bancaire est défini par le RIB, le type du compte, le CIN du propriétaire, le nom du propriétaire et le solde.
 Définir
-# 1- le type d’objet Compte pour gérer les comptes bancaires d’une banque.
-# 2- Les constructeurs nécessaires
-# 3- La méthode versement (Montant) pour verser une somme d’argent
-# 4- La méthode retrait(Montant) pour retirer une somme d’argent selon les règles
+1- le type d’objet Compte pour gérer les comptes bancaires d’une banque.
+2- Les constructeurs nécessaires
+3- La méthode versement (Montant) pour verser une somme d’argent
+4- La méthode retrait(Montant) pour retirer une somme d’argent selon les règles
 suivantes :
  Si le type est compte_étudiant le montant ne doit pas dépasser 1000Dhs
  Si le type est compte_courant le montant ne doit pas dépasser 5000 Dhs

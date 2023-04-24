@@ -40,7 +40,7 @@ CREATE OR REPLACE TYPE BODY Compte AS
 
       RETURN 1;
     ELSIF self.solde = c2.solde THEN
-     ;
+     
       RETURN 0;
     ELSE
    

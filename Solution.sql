@@ -37,13 +37,13 @@ CREATE OR REPLACE TYPE BODY Compte AS
   MEMBER FUNCTION compare (c2 IN Compte) RETURN NUMBER IS
   BEGIN
     IF self.solde > c2.solde THEN
-      DBMS_OUTPUT.PUT_LINE('Le solde du compte ' || self.RIB || ' est supérieur au solde du compte ' || c2.RIB);
+
       RETURN 1;
     ELSIF self.solde = c2.solde THEN
-      DBMS_OUTPUT.PUT_LINE('Le solde du compte ' || self.RIB || ' est égal au solde du compte ' || c2.RIB);
+     ;
       RETURN 0;
     ELSE
-      DBMS_OUTPUT.PUT_LINE('Le solde du compte ' || self.RIB || ' est inférieur au solde du compte ' || c2.RIB);
+   
       RETURN -1;
     END IF;
   END;

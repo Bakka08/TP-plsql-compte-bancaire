@@ -1,4 +1,4 @@
-CREATE TYPE Compte AS OBJECT (
+CREATE OR REPLACE TYPE Compte AS OBJECT (
   RIB VARCHAR2(50),
   type_compte VARCHAR2(50),
   CIN VARCHAR2(20),
@@ -9,11 +9,11 @@ CREATE TYPE Compte AS OBJECT (
 
   MEMBER PROCEDURE versement (montant NUMBER),
   MEMBER FUNCTION compare (c2 IN Compte) RETURN NUMBER,
-  MEMBER FUNCTION afficher RETURN VARCHAR2
+  MEMBER FUNCTION afficher RETURN VARCHAR2,
   MEMBER PROCEDURE retrait (montant NUMBER)
 );
 
-CREATE TYPE BODY Compte AS
+CREATE OR REPLACE TYPE BODY Compte AS
   CONSTRUCTOR FUNCTION Compte(p_RIB VARCHAR2, p_type_compte VARCHAR2, p_CIN VARCHAR2, p_nom VARCHAR2, p_solde NUMBER) RETURN SELF AS RESULT IS
   BEGIN
     self.RIB := p_RIB;
@@ -80,13 +80,13 @@ DECLARE
   c3 Compte;
   max_etudiant Compte;
 BEGIN
-  c1 := Compte('1245887', 'compte_étudiant', 'AA12580', 'Ali', 2580.14);
-  c2 := Compte('7894561', 'compte_étudiant', 'BB24681', 'Fatima', 3500.00);
-  c3 := Compte('1597532', 'compte_étudiant', 'CC36912', 'Karim', 5000.00);
-  
-  c1.afficher();
-  c2.afficher();
-  c3.afficher();
+  c1 := new Compte(p_RIB => '1245887', p_type_compte => 'compte_étudiant', p_CIN => 'AA12580', p_nom => 'Ali', p_solde => 2580.14);
+  c2 := new Compte(p_RIB => '7894561', p_type_compte => 'compte_étudiant', p_CIN => 'BB24681', p_nom => 'mariam', p_solde => 3000.00);
+  c3 := new Compte(p_RIB => '1597532', p_type_compte => 'compte_étudiant', p_CIN => 'CC36912', p_nom => 'imane', p_solde => 4500.00);
+
+ DBMS_OUTPUT.PUT_LINE(c1.afficher());  
+ DBMS_OUTPUT.PUT_LINE(c2.afficher());  
+ DBMS_OUTPUT.PUT_LINE(c3.afficher());  
 
   max_etudiant := c1;
 
@@ -99,5 +99,5 @@ BEGIN
   END IF;
   
   DBMS_OUTPUT.PUT_LINE('Le compte étudiant avec le solde le plus élevé est:');
-  max_etudiant.afficher();
+ DBMS_OUTPUT.PUT_LINE(max_etudiant.afficher());  
 END;
